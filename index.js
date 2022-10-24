@@ -17,7 +17,7 @@ bot.start((ctx) =>
 )
 bot.help((ctx) => ctx.reply(text.commands))
 
-// другие команды
+// тут фильмы
 
 bot.command('film', async (ctx) => {
     try {
@@ -34,6 +34,19 @@ bot.command('film', async (ctx) => {
         console.log(e)
     }
 })
+
+bot.command('serial', async (ctx) => {
+    try {
+        await ctx.replyWithPhoto(
+            { source: '/img/photo_2022-10-25_01-27-39.jpg' },
+            'а лучше займись делом:)',
+        )
+    } catch (e) {
+        console.log(e)
+    }
+})
+
+// Универсальная функция для кнопки
 
 function addActionBot(name, src, text) {
     bot.action(name, async (ctx) => {
@@ -53,7 +66,14 @@ function addActionBot(name, src, text) {
     })
 }
 
+// вызов кнопок
+
 addActionBot('btn_1', false, text.textHorror)
+addActionBot('btn_2', false, text.textComedies)
+addActionBot('btn_3', false, text.textMilitants)
+addActionBot('btn_4', false, text.textDrama)
+addActionBot('btn_5', false, text.textThriller)
+addActionBot('btn_6', false, text.textFantasy)
 
 bot.launch()
 
