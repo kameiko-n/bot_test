@@ -44,7 +44,7 @@ bot.command('film', async (ctx) => {
 
 bot.command('serial', async (ctx) => {
     try {
-        await ctx.replyWithPhoto({ source: '/img/photo.jpg' })
+        await ctx.replyWithPhoto({ source: '/img/photo.jpg' }, { caption: someCaption })
     } catch (e) {
         console.log(e)
     }
