@@ -44,7 +44,10 @@ bot.command('film', async (ctx) => {
 
 bot.command('serial', async (ctx) => {
     try {
-        await ctx.replyWithPhoto({ source: '/img/photo.jpg' }, { caption: someCaption })
+        await ctx.replyWithPhoto({
+            url: 'https://www.pinterest.es/pin/686447168198014651/',
+            filename: 'serial.jpg',
+        })
     } catch (e) {
         console.log(e)
     }
