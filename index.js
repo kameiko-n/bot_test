@@ -1,27 +1,49 @@
-const TelegramApi = require('node-telegram-bot-api')
+const { Telegraf, Markup } = require('telegraf')
+require('node-telegram-bot-api')
+require('dotenv').config()
 
-const token = '5752966771:AAFJQcxEDU6In-GxEiiJd7xG1kt1PCE815o'
+const text = require('./const')
 
-const bot = new TelegramApi(token, { polling: true })
+const bot = new Telegraf(process.env.BOT_TOKEN, { polling: true })
 
-const srart = () => {
-    bot.setMyCommands([
-        { command: '/start', description: 'начало работы' },
-        { command: '/info', description: 'информация' },
-    ])
+bot.start((ctx) =>
+    ctx.reply(`Hello ${ctx.message.from.first_name ? ctx.message.from.first_name : 'unknown'}`),
+)
 
-    bot.on('message', async (msg) => {
-        const text = msg.text
-        const chatId = msg.chat.id
+bot.help((ctx) => ctx.reply(text.commands))
 
-        if (text === '/start') {
-            return bot.sendMessage(chatId, 'go')
-        }
+bot.command('course', async (ctx) => {
+    try {
+        await ctx.replyWithHTML(
+            '<b> bla bla </b>',
+            Markup.inlineKeyboard([[Markup.button.callback('редакторы', 'btn_1')]]),
+        )
+    } catch (e) {
+        console.log(e)
+    }
+})
 
-        if (text === '/info') {
-            return bot.sendMessage(chatId, 'dobro pojalovat')
+function addActionBot(name, src, text) {
+    bot.action(name, async (ctx) => {
+        try {
+            await ctx.answerCbQuery()
+            if (src !== false) {
+                await ctx.replyWithPhoto({
+                    source: src,
+                })
+            }
+            await ctx.replyWithHTML(text, {
+                disable_web_page_preview: true,
+            })
+        } catch (e) {
+            console.log(e)
         }
     })
 }
 
-srart()
+addActionBot('btn_1', false, text.text)
+
+bot.launch()
+
+process.once('SIGINT', () => bot.stop('SIGINT'))
+process.once('SIGTERM', () => bot.stop('SIGTERM'))
