@@ -23,20 +23,14 @@ bot.command('film', async (ctx) => {
     try {
         await ctx.replyWithHTML(
             '<b> Выбирай жанр:) </b>',
-            Markup.inlineKeyboard(
+            Markup.inlineKeyboard([
                 Markup.button.callback('Ужасы', 'btn_1'),
                 Markup.button.callback('Комедии', 'btn_2'),
                 Markup.button.callback('Боевики', 'btn_3'),
                 Markup.button.callback('Драмы', 'btn_4'),
                 Markup.button.callback('Триллеры', 'btn_5'),
                 Markup.button.callback('Фантастика', 'btn_6'),
-            ).extra(),
-            // Markup.inlineKeyboard([
-            //     Markup.callbackButton("Item 1", "item1"),
-            //     Markup.callbackButton("Item 2", "item2"),
-            //     Markup.callbackButton("Item 3", "item3"),
-            //     Markup.callbackButton("Item 4", "item4"),
-            // ]).extra()
+            ]).extra(),
         )
     } catch (e) {
         console.log(e)
