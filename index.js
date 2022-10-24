@@ -23,12 +23,14 @@ bot.command('film', async (ctx) => {
     try {
         await ctx.replyWithHTML(
             '<b> Выбирай жанр:) </b>',
-            Markup.inlineKeyboard([[Markup.button.callback('Ужасы', 'btn_1')]]),
-            Markup.inlineKeyboard([[Markup.button.callback('Комедии', 'btn_2')]]),
-            Markup.inlineKeyboard([[Markup.button.callback('Боевики', 'btn_3')]]),
-            Markup.inlineKeyboard([[Markup.button.callback('Драмы', 'btn_4')]]),
-            Markup.inlineKeyboard([[Markup.button.callback('Триллеры', 'btn_5')]]),
-            Markup.inlineKeyboard([[Markup.button.callback('Фантастика', 'btn_6')]]),
+            Markup.inlineKeyboard([
+                [Markup.button.callback('Ужасы', 'btn_1')][
+                    Markup.button.callback('Комедии', 'btn_2')
+                ][Markup.button.callback('Боевики', 'btn_3')],
+                [Markup.button.callback('Драмы', 'btn_4')][
+                    Markup.button.callback('Триллеры', 'btn_5')
+                ][Markup.button.callback('Фантастика', 'btn_6')],
+            ]),
         )
     } catch (e) {
         console.log(e)
@@ -37,10 +39,7 @@ bot.command('film', async (ctx) => {
 
 bot.command('serial', async (ctx) => {
     try {
-        await ctx.replyWithPhoto(
-            { source: '/img/photo_2022-10-25_01-27-39.jpg' },
-            'а лучше займись делом:)',
-        )
+        await ctx.replyWithPhoto({ source: '/img/photo_2022-10-25_01-27-39.jpg' })
     } catch (e) {
         console.log(e)
     }
