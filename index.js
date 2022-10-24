@@ -32,7 +32,7 @@ bot.command('film', async (ctx) => {
                     Markup.button.callback('Триллеры', 'btn_5'),
                     Markup.button.callback('Фантастика', 'btn_6'),
                 ],
-            ]).extra(),
+            ]),
         )
     } catch (e) {
         console.log(e)
