@@ -39,7 +39,7 @@ bot.command('film', async (ctx) => {
 
 bot.command('serial', async (ctx) => {
     try {
-        await ctx.replyWithPhoto({ source: '/img/photo_2022-10-25_01-27-39.jpg' })
+        await ctx.replyWithPhoto({ source: '/img/photo.jpg' })
     } catch (e) {
         console.log(e)
     }
