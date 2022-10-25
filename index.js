@@ -47,7 +47,7 @@ bot.command('film', async (ctx) => {
 bot.command('serial', async (ctx) => {
     try {
         await ctx.replyWithPhoto(
-            'https://cs8.pikabu.ru/post_img/big/2016/07/22/11/1469213880174655981.jpg',
+            'https://cs11.pikabu.ru/post_img/big/2019/09/22/10/1569175156186039656.jpg',
         )
     } catch (e) {
         console.log(e)
