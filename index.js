@@ -42,9 +42,13 @@ bot.command('film', async (ctx) => {
     }
 })
 
+// тут сериалы
+
 bot.command('serial', async (ctx) => {
     try {
-        await ctx.replyWithPhoto('https://www.pinterest.es/pin/686447168198014651/')
+        await ctx.replyWithPhoto(
+            'https://cs8.pikabu.ru/post_img/big/2016/07/22/11/1469213880174655981.jpg',
+        )
     } catch (e) {
         console.log(e)
     }
