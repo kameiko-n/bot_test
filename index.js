@@ -84,7 +84,7 @@ addActionBot('btn_5', false, text.textThriller)
 addActionBot('btn_6', false, text.textFantasy)
 
 bot.on('message', async (ctx) => {
-    await ctx.replyWithSticker('123123jkbhj6b')
+    await ctx.reply('Я не понимаю, нажми /help')
 })
 
 bot.launch()
