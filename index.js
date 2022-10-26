@@ -17,6 +17,10 @@ bot.start((ctx) =>
 )
 bot.help((ctx) => ctx.reply(text.commands))
 
+bot.on('message', async (ctx) => {
+    await ctx.reply('Я тебя не понимаю, нажми /help')
+})
+
 // тут фильмы
 
 bot.command('film', async (ctx) => {
