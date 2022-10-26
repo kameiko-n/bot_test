@@ -17,10 +17,6 @@ bot.start((ctx) =>
 )
 bot.help((ctx) => ctx.reply(text.commands))
 
-bot.on('message', async (ctx) => {
-    await ctx.reply('Я тебя не понимаю, нажми /help')
-})
-
 // тут фильмы
 
 bot.command('film', async (ctx) => {
@@ -86,6 +82,10 @@ addActionBot('btn_3', false, text.textMilitants)
 addActionBot('btn_4', false, text.textDrama)
 addActionBot('btn_5', false, text.textThriller)
 addActionBot('btn_6', false, text.textFantasy)
+
+bot.on('message', async (ctx) => {
+    await ctx.replyWithSticker('123123jkbhj6b')
+})
 
 bot.launch()
 
